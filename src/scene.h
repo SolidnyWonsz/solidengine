@@ -8,7 +8,7 @@ class Scene {
         Scene(const std::string name);
 
         const std::string Name;
-        std::vector<Mesh> Meshes;
+        std::vector<Mesh> meshes;
 
         void Draw();
 

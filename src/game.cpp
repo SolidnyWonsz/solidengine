@@ -1,11 +1,13 @@
 #include <game.h>
 #include <SDL2/SDL.h>
+#include <scene.h>
 
 void Game::Start(const char *title, int width, int height) {
     State = State::Uninitialized;
     Renderer = new CRenderer(title, width, height);
     Running = true;
     State = State::Running;
+    //Scene::Initialize();
 }
 
 bool Game::IsPaused() { return bIsPaused; }
