@@ -1,8 +1,8 @@
 #include <renderer/renderer.h>
 #include <renderer/shader.h>
-#include <gl/glew.h>
+#include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
-#include <gl/glu.h>
+#include <GL/glu.h>
 #include <stdlib.h>
 #include <string>
 #include <iostream>
@@ -21,13 +21,15 @@ const char *fragmentShaderData =
     "#version 330 core\n"
     "out vec4 FragColor;\n"
     "void main() {\n"
-    "FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+    "FragColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"
     "}\0";
 
 
+//static Mesh triangle;
+
 CRenderer::CRenderer(const char *title, int width, int height) {
     const char *description;
-    if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Renderer", "Failed to init SDL", NULL);
         exit(EXIT_FAILURE);
     }
@@ -53,6 +55,8 @@ CRenderer::CRenderer(const char *title, int width, int height) {
     glewInit();
 
     Shader *shader = new Shader(vertexShaderData, fragmentShaderData);
+
+    SDL_GL_SetSwapInterval(-1);
 }
 
 CRenderer::~CRenderer() {
@@ -60,7 +64,7 @@ CRenderer::~CRenderer() {
 }
 
 void CRenderer::Draw() {
-    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
     Scene::GetScene()->Draw();

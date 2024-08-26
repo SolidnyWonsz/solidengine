@@ -1,7 +1,8 @@
 #pragma once
 
-#include <renderer/mesh.h>
+#include <vector>
 #include <string>
+#include <renderer/mesh.h>
 
 class Scene {
     public:
@@ -11,9 +12,11 @@ class Scene {
         std::vector<Mesh> meshes;
 
         void Draw();
+        void SpawnMesh(const char *path);
 
     public:
         static void Initialize();
         static Scene *GetScene();
         static void ChangeScene(const Scene &scene);
+        static void ChangeScene(const std::string &name);
 };

@@ -7,7 +7,7 @@ void Game::Start(const char *title, int width, int height) {
     Renderer = new CRenderer(title, width, height);
     Running = true;
     State = State::Running;
-    //Scene::Initialize();
+    Scene::Initialize();
 }
 
 bool Game::IsPaused() { return bIsPaused; }
@@ -24,6 +24,7 @@ void Game::Run() {
         lastTime = currTime;
         currTime = SDL_GetPerformanceCounter();
         fDeltaTime = (double)((lastTime - currTime)*1000 / (double)SDL_GetPerformanceCounter());
+
         SDL_Event e;
         while (SDL_PollEvent(&e)) {
             switch (e.type) {
@@ -32,7 +33,7 @@ void Game::Run() {
                     break;
             }
         }
-        //for (;;);
+
         Renderer->Draw();
     }
 }

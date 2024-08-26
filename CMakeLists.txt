@@ -1,16 +1,17 @@
 cmake_minimum_required(VERSION 3.29)
 
-project(SolidEngine C CXX)
+project(SolidEngine)
 
 set(SOURCES
     src/main.cpp
     src/game.cpp
     src/scene.cpp
+    src/loaders/obj.cpp
     src/renderer/renderer.cpp
     src/renderer/shader.cpp
-    src/renderer/camera.cpp
     src/renderer/mesh.cpp
-    #src/input.cpp
+    src/common/logging.cpp
+    src/common/tokenizer.cpp
 )
 
 include_directories(src)

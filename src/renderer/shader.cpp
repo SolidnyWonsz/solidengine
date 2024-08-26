@@ -1,6 +1,6 @@
 #include <renderer/shader.h>
 #include <SDL2/SDL.h>
-#include <gl/glew.h>
+#include <GL/glew.h>
 
 Shader::Shader(const char *vertexShaderCode, const char *fragmentShaderCode) {
     Create(vertexShaderCode, fragmentShaderCode);
