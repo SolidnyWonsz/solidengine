@@ -27,7 +27,7 @@ const char *fragmentShaderData =
 
 //static Mesh triangle;
 
-CRenderer::CRenderer(const char *title, int width, int height) {
+CRenderer::CRenderer(const char *title, int width, int height) : wireframe(false) {
     const char *description;
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Renderer", "Failed to init SDL", NULL);
@@ -78,6 +78,19 @@ void CRenderer::setFullscreen(bool fullscreen) {
 
 bool CRenderer::isFullscreen() {
     return SDL_GetWindowFlags(window) & SDL_WINDOW_FULLSCREEN;
+}
+
+void CRenderer::setWireframe(bool wireframe) {
+    this->wireframe = wireframe;
+    if (wireframe) {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    } else {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    }
+}
+
+bool CRenderer::getWireframe() {
+    return wireframe;
 }
 
 Resolution CRenderer::getResolution() {

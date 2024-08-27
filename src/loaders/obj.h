@@ -1,5 +1,6 @@
 #pragma once
 
+#include <common/defines.h>
 #include <vector>
 
 namespace Loader {

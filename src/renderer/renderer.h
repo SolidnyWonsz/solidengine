@@ -21,4 +21,10 @@ class CRenderer {
         bool isFullscreen();
 
         Resolution getResolution();
+
+        void setWireframe(bool wireframe);
+        bool getWireframe();
+
+    private:
+        bool wireframe;
 };

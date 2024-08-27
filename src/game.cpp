@@ -31,6 +31,10 @@ void Game::Run() {
                 case SDL_QUIT:
                     Running = false;
                     break;
+                case SDL_KEYDOWN:
+                    if (e.key.keysym.sym == SDLK_f) {
+                        Renderer->setWireframe(!Renderer->getWireframe());
+                    }
             }
         }
 

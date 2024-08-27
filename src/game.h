@@ -1,7 +1,6 @@
 #pragma once
 
 #include <renderer/renderer.h>
-#include <input.h>
 
 class Game {
     public:

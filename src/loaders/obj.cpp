@@ -8,7 +8,7 @@
 using namespace Loader;
 
 #define Comment "#"
-#define Vertex "v"
+#define VertexPoint "v"
 #define Indices "f"
 
 OBJ::OBJ(const char *path) {
@@ -35,7 +35,7 @@ OBJ::OBJ(const char *path) {
         if (lineType == Comment) {
             continue;
         } else 
-        if (lineType == Vertex) {
+        if (lineType == VertexPoint) {
             // There should be just three floats, right?? RIGHT??
             for (int i = 0; i < 3; i++) {
                 std::string vertexPoint = token.next();

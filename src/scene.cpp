@@ -11,10 +11,8 @@ Scene::Scene(const std::string name) : Name(name) {
 
 void Scene::Draw() {
     for (Mesh mesh : meshes) {
-        //printf("Drawing mesh\n");
         mesh.Draw();
     }
-    //printf("Finishing drawing mesh\n");
 }
 
 void Scene::SpawnMesh(const char *path) {
@@ -25,8 +23,6 @@ void Scene::SpawnMesh(const char *path) {
 
     Mesh *mesh = new Mesh(path);
     meshes.push_back(*mesh);
-
-    printf("Mesh spawned\n");
 }
 
 void Scene::Initialize() {
